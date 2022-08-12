@@ -1,0 +1,123 @@
+﻿@page
+@model ORABANK.Pages.Pénalité.EditModel
+@{
+}
+<head>
+    <script type="text/javascript" src="~/js/site.js"></script>
+    <script type="text/javascript" src="~/js/jquery.js"></script>
+
+    <style>
+        body{
+            background-image : linear-gradient(green,white);
+        }
+
+    </style>
+</head>
+<br />
+
+<h2>Modification de Pénalité </h2>
+
+@if(Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+@if(Model.successMessage.Length > 0)
+{
+    <div class="row mb-3">
+        <div cclass="col-sm-9">
+            <div class="alert alert-success alert_dismissible fade show" role="alert">
+                <strong>@Model.successMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<form method="get">
+    <input type="hidden" name="id_penalite" value="@Model.penaliteInfo.id_penalite">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Filiale</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="filiale" value="@Model.penaliteInfo.filiale"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Date</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="date" value="@Model.penaliteInfo.date_penalite"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Montant total</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="montant_total" value="@Model.penaliteInfo.montant_total"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Montant CFA</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="montant_cfa" value="@Model.penaliteInfo.montant_cfa"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Montant monnaie local</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="montant_monnaie_local" value="@Model.penaliteInfo.montant_monnaie_local"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Payement</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="payement" value="@Model.penaliteInfo.payement"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Motif</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="motif" value="@Model.penaliteInfo.motif"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Loi</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="loi" value="@Model.penaliteInfo.loi"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Observation</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="observation" value="@Model.penaliteInfo.observation"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Devise</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="devise" value="@Model.penaliteInfo.devise"/>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button onclick="editPenalite(@Model.penaliteInfo.id_penalite)" type="submit" class="btn btn-primary" href="/Penalite/Edit?idA="@Model.penaliteInfo.id_penalite"&idB = "@Model.penaliteInfo.filiale"&idC="@Model.penaliteInfo.date_penalite"&idD="@Model.penaliteInfo.montant_total"&idE="@Model.penaliteInfo.montant_cfa"&idF="@Model.penaliteInfo.montant_monnaie_local"&idG="@Model.penaliteInfo.payement"&idH="@Model.penaliteInfo.motif"&idI="@Model.penaliteInfo.loi"&idJ="@Model.penaliteInfo.observation"&idK="@Model.penaliteInfo.devise"">Modifier</button>
+        </div>
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Penalite/Acceuil" role="button">Retour</a>
+        </div>
+    </div>
+
+</form>

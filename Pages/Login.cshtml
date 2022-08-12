@@ -1,0 +1,90 @@
+﻿@page
+@model ORABANK.Pages.LoginModel
+@{
+    ViewData["Title"] = "Espace Administrateur";
+}
+
+<head>
+    <link rel="stylesheet" media="all" href="../mystyle.css" />
+    <style>
+        body{
+            background-image : linear-gradient(green,white);
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Bienvenue dans l'espace Administrateur de l'application.</p>
+
+
+<br />
+            
+  <h2>Se Connecter </h2>
+
+
+
+@if(Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+@if(Model.successMessage.Length > 0)
+{
+    <div class="row mb-3">
+        <div class="col-sm-9">
+            <div class="alert alert-success alert_dismissible fade show" role="alert">
+                <strong>@Model.successMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<form method="post">
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Mail</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="mail" value="@Model.loginInfo.Mail"/>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Mot de passe </label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="motdepasse" value="@Model.loginInfo.Motdepasse"/>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Confirmer le mot de passe </label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="motdepasse" value="@Model.loginInfo.Motdepasse"/>
+        </div>
+    </div>
+
+     <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </div>
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Index" role="button">Retour</a>
+        </div>
+    </div>
+
+</form>
+</body>

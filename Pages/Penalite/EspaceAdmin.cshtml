@@ -1,0 +1,70 @@
+﻿@page
+@model ORABANK.Pages.Pénalité.EspaceAdminModel
+@{
+}
+<head>
+    <script type="text/javascript" src="~/js/site.js"></script>
+    <script type="text/javascript" src="~/js/jquery.js"></script>
+
+    <link rel="stylesheet" media="all" href="../mystyle.css" />
+    <style>
+        body{
+            background-image : linear-gradient(green,white);
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<br >
+<h2>Espace Administrateur </h2>
+
+<h6>Liste des pénalités déclarées </h6>
+
+<table class="table">
+    <thead >
+        <tr>
+            <th>ID</th>
+            <th>Filiale</th>
+            <th>Date</th>
+            <th>Montant total</th>
+            <th>Montant cfa</th>
+            <th>Montant monnaie local</th>
+            <th>Payement</th>
+            <th>Motif</th>
+            <th>Loi</th>
+            <th>Observation</th>
+            <th>Devise</th>
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var sdi in Model.listPenalite)
+        {
+            <tr>
+                <td>@sdi.id_penalite</td>
+                <td>@sdi.filiale</td>
+                <td>@sdi.date_penalite</td>
+                <td>@sdi.montant_total</td>
+                <td>@sdi.montant_cfa</td>
+                <td>@sdi.montant_monnaie_local</td>
+                <td>@sdi.payement</td>
+                <td>@sdi.motif</td>
+                <td>@sdi.loi</td>
+                <td>@sdi.observation</td>
+                <td>@sdi.devise</td>
+
+                <td>
+                    <button  onclick = "deletePenalite(@sdi.id_penalite)" class="btn btn-primary btn-sm" href="/Penalite/Delete?id=@sdi.id_penalite">Supprimer</button>            
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+</body>
